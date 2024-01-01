@@ -1,6 +1,6 @@
 const {Schema,model}= require('mongoose');
 const { error } = require('node:console');
-const {cretaeHmac,randomBytes, createHmac}=require('node:crypto')
+const {randomBytes, createHmac}=require('node:crypto')
 const userSchema= new Schema({
     fullName:{
         type:String,
