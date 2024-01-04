@@ -10,7 +10,7 @@ const cookieParser = require("cookie-parser");
 const { checkForAuthenticationCookie } = require("./middlewares/authentication");
 const app = express();
 const PORT=process.env.PORT;
-mongoose.connect(process.env.MONGODB_URL)
+mongoose.connect(process.env.MONGODB_URL,{ useNewUrlParser: true, useUnifiedTopology: true })
 app.use(express.static(path.resolve('./public')))
 app.set("view engine","ejs");
 app.set("views",path.resolve("./views"));
