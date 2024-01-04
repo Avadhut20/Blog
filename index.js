@@ -1,3 +1,4 @@
+require('dotenv').config();
 const path  =require("path");
 const userRoute=require('./routes/user')
 const blogRoute=require("./routes/blog")
@@ -8,7 +9,7 @@ const Blog=require("./models/blog")
 const cookieParser = require("cookie-parser");
 const { checkForAuthenticationCookie } = require("./middlewares/authentication");
 const app = express();
-const PORT=8000;
+const PORT=process.env.PORT;
 mongoose.connect("mongodb://localhost:27017/blogify360")
 app.use(express.static(path.resolve('./public')))
 app.set("view engine","ejs");
