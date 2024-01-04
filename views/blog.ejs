@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head') %>
+    <style>
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 18px;
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+    </style>
+    <title>Blog page</title>
+</head>
+<body class="bg-light">
+    
+    <%- include('./partials/nav') %>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-lg">
+                    <img src="<%= blog.coverImageURL %>" alt="Blog Cover Image" class="card-img-top img-fluid rounded-top">
+                    <div class="card-body">
+                        <h1 class="card-title text-center"><%= blog.title %></h1>
+                        <pre ><%= blog.body %></pre>
+                    </div>
+                    <div class="card-footer bg-white">
+                        <h2 class=" mb-3">Written by</h2>
+                        <div class="media">
+                            <img src="<%= blog.createdBy.profileImageURL %>" class="mr-3 rounded-circle" alt="Author's Profile Image" width="50">
+                            <div class="media-body">
+                                <h5 class="mt-0"><%= blog.createdBy.fullName %></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <%- include('./partials/scripts') %>
+    <!-- Bootstrap CDN or local Bootstrap import -->
+   
+</body>
+</html>

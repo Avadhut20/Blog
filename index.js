@@ -4,19 +4,23 @@ const blogRoute=require("./routes/blog")
 const express= require('express');
 const mongoose=require("mongoose");
 const cookie_parser=require("cookie-parser");
+const Blog=require("./models/blog")
 const cookieParser = require("cookie-parser");
 const { checkForAuthenticationCookie } = require("./middlewares/authentication");
 const app = express();
 const PORT=8000;
 mongoose.connect("mongodb://localhost:27017/blogify360")
+app.use(express.static(path.resolve('./public')))
 app.set("view engine","ejs");
 app.set("views",path.resolve("./views"));
 app.use(express.urlencoded({extended:false}));
 app.use(cookieParser())
 app.use(checkForAuthenticationCookie('token'))
-app.get('/',(req,res)=>{
+app.get('/',async (req,res)=>{
+    const allBlogs=await Blog.find({})
     res.render("home",{
-        user:req.user
+        user:req.user,
+        blogs:allBlogs,
     })
 })
 app.use("/user",userRoute)

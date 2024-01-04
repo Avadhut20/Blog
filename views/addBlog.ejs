@@ -9,7 +9,7 @@
     
     <%- include('./partials/nav') %>
     <div class="container mt-4">
-            <form action="/blog" method="post">
+            <form action="/blog" method="post" enctype="multipart/form-data"> 
             <div class="mb-3">
                 <label for="coverImage" class="form-label">coverImage</label>
                 <input type="file" class="form-control" id="coverImage" name="coverImage" aria-describedby="coverImage">
