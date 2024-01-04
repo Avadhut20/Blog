@@ -1,4 +1,6 @@
 const { Router } = require("express");
+require('dotenv').config();
+
 const router = Router();
 const path = require("path");
 const multer = require("multer");
@@ -6,7 +8,7 @@ const Blog = require('../models/blog');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, path.resolve('./public/uploads/'));
+        cb(null, process.env.UPLOAD_PATH|| path.resolve('./public/uploads/'));
     },
     filename: function (req, file, cb) {
         const fileName = `${Date.now()}-${file.originalname}`;
