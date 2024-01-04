@@ -10,7 +10,7 @@ const cookieParser = require("cookie-parser");
 const { checkForAuthenticationCookie } = require("./middlewares/authentication");
 const app = express();
 const PORT=process.env.PORT;
-mongoose.connect("mongodb://localhost:27017/blogify360")
+mongoose.connect(MONGODB_URL)
 app.use(express.static(path.resolve('./public')))
 app.set("view engine","ejs");
 app.set("views",path.resolve("./views"));
